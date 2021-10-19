@@ -2,7 +2,7 @@
 const http = require("http");
 //import `load` function with CJS
 const load = require("./load.js");
-//
+//get the json
 let json = await load('./data.json');
 //create a server
 let server = http.createServer();
@@ -19,8 +19,6 @@ server.on("request", async function (req, res) {
     if (url.searchParams.has('word')) {
         //get word
         let word = url.searchParams.get('word');
-        //get the json 
-        json = await load('./data.json');
         //write the definition at 0
         res.write(json.word[0]);
     } else {
