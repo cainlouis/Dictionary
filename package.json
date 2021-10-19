@@ -1,0 +1,22 @@
+{
+  "name": "520-a3-louis",
+  "version": "1.0.0",
+  "description": "A simple full-stack application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Nael_Louis/520-a3-louis.git"
+  },
+  "author": "Nael Louis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Nael_Louis/520-a3-louis/issues"
+  },
+  "homepage": "https://gitlab.com/Nael_Louis/520-a3-louis#readme",
+  "devDependencies": {
+    "jest": "^27.3.0"
+  }
+}
