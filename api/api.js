@@ -16,9 +16,9 @@ server.on("request", async function (req, res) {
     //the second parameter indicates the base URL
     //required if we don't know if the url is relative
     const url = new URL(req.url, `http://${req.headers.host}`);
-    //get word
-    let word = url.searchParams.get('word');
-    if (word) {
+    if (url.searchParams.has('word')) {
+        //get word
+        let word = url.searchParams.get('word');
         //write the definition at 0
         res.write(json[word][0]);
     } else {
