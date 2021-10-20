@@ -7,14 +7,14 @@ body {
     width:100%;
     height:100%;
     margin: 0;
-    background-image: url(./images/dictionary-wallpaper.jpg);
+    background-image: url(./images/dictionary.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
 }
 
 main {
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 145px);
     text-align: center;
 }
 
@@ -24,7 +24,7 @@ section {
     padding: 2em;
     margin: 0;
     font-size: large;
-    width: 300px;
+    width: 1000px;
     height: 300px;
 }
 
@@ -40,7 +40,10 @@ main div {
 }
 
 .definition {
-    color:rgb(138, 4, 179);
+    color:mediumblue;
+    font-weight: bolder;
+    font-size:xx-large;
+    text-align: center;
 }
 
 .error {
@@ -48,16 +51,20 @@ main div {
 }
 
 footer {
-    font-size: 1em;
+    font-size:larger;
     text-transform: uppercase;
     text-align: center;
     color: black;
+    font-weight: bolder;
 }
 
 button {
-    border-radius: 10px;
-    background-color: rgb(151, 6, 196);
+    border-radius: 0px;
+    background-color: mediumblue;
     color: blanchedalmond;
+    width: 100px;
+    height: 49px;
+    font-size: larger;
 }
 
 .search {
@@ -67,5 +74,5 @@ button {
 }
 
 a {
-    color:rgb(138, 4, 179);
+    color:mediumblue;
 }
