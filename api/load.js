@@ -1,7 +1,10 @@
 //Use require to import the method
 const fs = require("fs/promises");
 
-//Module export to export using require
+/**
+ * this method reads the json found at the path and return a json object
+ */
+//Module export to export using require 
 module.exports = async function load(path) {
     try {
         //read from file and parse it to json before returning object
