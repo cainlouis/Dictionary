@@ -1,24 +1,29 @@
+//Nael Louis, 1934115
 'use strict';
 
 document.addEventListener('DOMContentLoaded', setup);
 
 let global = [];
 
+/**
+ * called on DOMContentLoaded, add the event listener to the form and initialize certain variable.
+ */
 function setup() {
     let form = document.querySelector('form');
     form.addEventListener('submit', getDefinition);
-    global.def = document.querySelector('.definition');
+    global.defContainer = document.querySelector('section');
     global.errPara = document.querySelector('.error');
 }
 
 /**
- * 
- * @param {*} e 
+ * On submit this function fetch the definition of the word inserted in the from from
+ * the backend. 
+ * @param {*} e event submit from the form
  */
 async function getDefinition(e) {
     e.preventDefault();
 
-    global.word = e.target.elements['word'].value.toLowerCase();
+    global.word = e.target.elements['word'].value;
 
     let params = { word: global.word };
     let searchParams = new URLSearchParams(params);
@@ -38,13 +43,43 @@ async function getDefinition(e) {
     }
 }
 
+/**
+ * Get the error thrown by the fetch and insert the err message in the error paragraph in html
+ * @param {*} err 
+ */
 function displayErr(err) {
-    console.error(err.message);
+    //Remove any previous text 
+    clearAllParagraph();
+    //insert error into error paragraph
     global.errPara.innerHTML = err.message;
-    global.def.innerHTML = "";
 }
 
+/**
+ * displayDef parse the string received from the backend and parse it
+ * then goes through the json to create a p element and insert the text in the paragraph created.
+ */
 function displayDef() {
+    //Remove any previous text
+    clearAllParagraph();
+    //parse the string received 
+    let arr = JSON.parse(global.definition);
+    //then for every definitions given create a paragraph
+    for (let i = 0; i < arr.length; i++) {
+        let p = document.createElement('p');
+        //inser the text from the json
+        p.innerHTML = (i+1) + " - " + arr[i];
+        //add class for the css and add paragraph to section
+        p.classList.add("definition");
+        global.defContainer.appendChild(p);
+    }
+}
+
+/**
+ * this function clear the text in the error paragraph and the p element in section.
+ */
+function clearAllParagraph() {
     global.errPara.innerHTML = "";
-    global.def.innerHTML = global.definition;
+    //Remove previous paragraph that have the class definition
+    let allDef = document.querySelectorAll(".definition");
+    allDef.forEach(node => node.remove());
 }
