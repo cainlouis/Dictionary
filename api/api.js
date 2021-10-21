@@ -19,7 +19,7 @@ function startServer(json) {
         //get word from the url 
         let word = url.searchParams.get('word');
         //if it returns a null value set header to 404
-        if (wordSearchParam !== null) {
+        if (word !== null) {
             //check if the value the user entered exist in json
             if (!json.hasOwnProperty(word)) {
                 //if not try the lowerCase equivalent
