@@ -22,23 +22,28 @@ function setup() {
  */
 async function getDefinition(e) {
     e.preventDefault();
-
+    //get the user input
     global.word = e.target.elements['word'].value;
 
+    //make the word as url parameter and add it to the url
     let params = { word: global.word };
     let searchParams = new URLSearchParams(params);
     let url = "http://localhost:3000?" + searchParams.toString();
+    //request the definition from the server side and store the result in a global variable
     try {
         let response = await fetch(url);
         if (response.ok) {
             global.definition = await response.text();
         }
+        //throw an error if the response is not ok
         else {
             throw new Error(response.status + ": " + response.statusText);
         }
+        //display definition if response ok
         displayDef();
     }
     catch (err) {
+        //display the error if response not ok
         displayErr(err);
     }
 }
