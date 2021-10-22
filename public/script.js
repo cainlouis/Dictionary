@@ -51,7 +51,7 @@ function displayErr(err) {
     //Remove any previous text 
     clearAllParagraph();
     //insert error into error paragraph
-    global.errPara.innerHTML = err.message;
+    global.errPara.textContent = err.message;
 }
 
 /**
@@ -67,7 +67,7 @@ function displayDef() {
     for (let i = 0; i < arr.length; i++) {
         let p = document.createElement('p');
         //inser the text from the json
-        p.innerHTML = (i+1) + " - " + arr[i];
+        p.textContent = (i+1) + " - " + arr[i];
         //add class for the css and add paragraph to section
         p.classList.add("definition");
         global.defContainer.appendChild(p);
@@ -78,7 +78,7 @@ function displayDef() {
  * this function clear the text in the error paragraph and the p element in section.
  */
 function clearAllParagraph() {
-    global.errPara.innerHTML = "";
+    global.errPara.textContent = "";
     //Remove previous paragraph that have the class definition
     let allDef = document.querySelectorAll(".definition");
     allDef.forEach(node => node.remove());
