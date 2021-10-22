@@ -57,10 +57,13 @@ function startServer(json) {
     //import `load` function with CJS
     const load = require("../api/load.js");
     try {
+        //get json
         let json = await load('./api/data.json');
+        //if the json is not null or undefined create the server
         if (json !== null && json !== undefined) {
             startServer(json);
         }
+        //else throw error
         else {
             throw new Error("Couldn't load the server");
         }
