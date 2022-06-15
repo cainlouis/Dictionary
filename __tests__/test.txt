@@ -1,0 +1,3 @@
+"accumulator": [
+        "A rechargeable device for storing electrical energy in the form of chemical energy, consisting of one or more separate secondary cells.\\n(Source: CED)"
+    ]
